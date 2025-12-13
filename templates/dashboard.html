@@ -1,0 +1,10 @@
+
+<h2>Channels</h2>
+{% for c in channels %}
+  <p>{{ c.channel_id }}</p>
+{% endfor %}
+
+<form action="/add-channel" method="post">
+  <input name="channel_id" placeholder="Channel ID">
+  <button>Add Channel</button>
+</form>
