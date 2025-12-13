@@ -1,10 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Dashboard ✅</h2>
 
-<h2>Channels</h2>
-{% for c in channels %}
-  <p>{{ c.channel_id }}</p>
-{% endfor %}
+  <a href="/logout">Logout</a>
 
-<form action="/add-channel" method="post">
-  <input name="channel_id" placeholder="Channel ID">
-  <button>Add Channel</button>
-</form>
+  <h3>Channels</h3>
+  {% for c in channels %}
+    <p>{{ c.channel_id }}</p>
+  {% endfor %}
+</body>
+</html>
