@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html>
 <body>
-  <h2>Dashboard ✅</h2>
+<h2>Admin Dashboard ✅</h2>
 
-  <a href="/logout">Logout</a>
+<a href="/logout">Logout</a>
 
-  <h3>Channels</h3>
-  {% for c in channels %}
-    <p>{{ c.channel_id }}</p>
-  {% endfor %}
+<hr>
+
+<h3>Add Channel</h3>
+<form method="post" action="/add-channel">
+  <input name="channel_id" placeholder="Channel ID" required>
+  <br><br>
+
+  <input name="photo_caption" placeholder="Photo Caption" required>
+  <br><br>
+
+  <input name="video_caption" placeholder="Video Caption" required>
+  <br><br>
+
+  <input name="footer" placeholder="Footer / Link" required>
+  <br><br>
+
+  <input name="template" value="{caption}">
+  <br><br>
+
+  <button type="submit">Save Channel</button>
+</form>
+
+<hr>
+
+<h3>Saved Channels</h3>
+{% for c in channels %}
+  <p>📢 {{ c.channel_id }}</p>
+{% endfor %}
+
 </body>
 </html>
