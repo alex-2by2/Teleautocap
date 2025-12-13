@@ -1,0 +1,6 @@
+
+pyTelegramBotAPI
+flask
+pymongo
+dnspython
+apscheduler
