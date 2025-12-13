@@ -1,29 +1,19 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h2>Admin Dashboard ✅</h2>
 
+<h2>Admin Dashboard ✅</h2>
 <a href="/logout">Logout</a>
 
 <hr>
 
 <h3>Add Channel</h3>
-<form method="post" action="/add-channel">
-  <input name="channel_id" placeholder="Channel ID" required>
-  <br><br>
-
-  <input name="photo_caption" placeholder="Photo Caption" required>
-  <br><br>
-
-  <input name="video_caption" placeholder="Video Caption" required>
-  <br><br>
-
-  <input name="footer" placeholder="Footer / Link" required>
-  <br><br>
-
-  <input name="template" value="{caption}">
-  <br><br>
-
+<form action="/add-channel" method="post">
+  <input name="channel_id" placeholder="Channel ID (-100xxxx)" required><br><br>
+  <input name="photo_caption" placeholder="Photo Caption"><br><br>
+  <input name="video_caption" placeholder="Video Caption"><br><br>
+  <input name="footer" placeholder="Footer / Link"><br><br>
+  <input name="template" value="{caption}"><br><br>
   <button type="submit">Save Channel</button>
 </form>
 
@@ -31,7 +21,12 @@
 
 <h3>Saved Channels</h3>
 {% for c in channels %}
-  <p>📢 {{ c.channel_id }}</p>
+  <p>
+    📢 {{ c.channel_id }}
+    <a href="/delete-channel/{{ c.channel_id }}">❌ Delete</a>
+  </p>
+{% else %}
+  <p>No channels added yet</p>
 {% endfor %}
 
 </body>
